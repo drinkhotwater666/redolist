@@ -1,0 +1,6 @@
+<div *ngFor="let item of todos; trackBy: trackID">
+    <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="swapStatus(item.id)">{{item.name}}</mat-checkbox>
+    <!-- <span [class.status]="item.done" (click)="swapStatus(item.id)">{{item.name}}</span> &nbsp;&nbsp;&nbsp;&nbsp; -->
+    <!-- <a href="#" (click)="remove($event,item.id) ">x</a> -->
+    <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
+</div>
