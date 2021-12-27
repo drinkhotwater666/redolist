@@ -10,17 +10,27 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 export class TodoListComponent implements OnInit {
 
   constructor() { }
-  done: Todo[] = [];
-  notDone: Todo[] = [];
+
 
   @Input()
   todos!: Todo[];
+
+  newTodo: Todo[] = Object.assign([], this.todos);
 
   @Output()
   del = new EventEmitter<number>()
 
   @Output()
   swap = new EventEmitter<number>()
+
+
+  // @Output()
+  // newTodos = new EventEmitter<Todo[]>()
+
+  // updateTodos() {
+  //   this.newTodos.emit(this.newTodo);
+  // }
+
 
   trackID(index: any, todo: Todo) {
     return todo.id
@@ -34,16 +44,20 @@ export class TodoListComponent implements OnInit {
   swapStatus(id: any) {
     this.swap.emit(id)
   }
+
+  havedone: Todo[] = [];
+  notDone: Todo[] = [];
+
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
-    this.done = this.todos?.length > 0 ? this.todos.filter(i => i.done) : []
+    this.havedone = this.todos?.length > 0 ? this.todos.filter(i => i.done) : []
     this.notDone = this.todos?.length > 0 ? this.todos.filter(i => !i.done) : []
-    // console.log(this.done);
   }
+
 
   drop(event: CdkDragDrop<Todo[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);//switch status
     } else {
       transferArrayItem(
         event.previousContainer.data,
@@ -51,14 +65,30 @@ export class TodoListComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
-      console.log(event.container.data[event.currentIndex].done);
       event.container.data[event.currentIndex].done = !event.container.data[event.currentIndex].done
+
+      console.log(event.container.data[event.currentIndex].id);
+
+      // let index = this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id)
+      // this.todos[index].done = !this.todos[index].done
+      // Object.assign(this.todos[index].done, !this.todos[index].done);
+      // console.log(this.todos[index]);// get the index of dragged item in todos
+
+      // }
+
     }
   }
+
+  aa() {
+    console.log(this.havedone);
+
+  }
+
+
   ngOnInit(): void {
     // console.log('1111');
-    this.done = this.todos?.length > 0 ? this.todos.filter(i => i.done) : []
-    this.notDone = this.todos?.length > 0 ? this.todos.filter(i => !i.done) : []
+    // this.havedone = this.todos?.length > 0 ? this.todos.filter(i => i.done) : []
+    // this.notDone = this.todos?.length > 0 ? this.todos.filter(i => !i.done) : []
   }
 
 }

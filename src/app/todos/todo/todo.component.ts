@@ -22,6 +22,7 @@ export class TodoComponent implements OnInit, OnChanges {
     let curTodo = this.todos.find(nb => nb.id === id)
     this.todosService.swapStatus(id, !curTodo!.done).subscribe(res => {
       curTodo!.done = res!.done
+      console.log("parent: ", curTodo?.done);
     })
   }
 
@@ -30,6 +31,8 @@ export class TodoComponent implements OnInit, OnChanges {
       this.todos.push(res)
     })
   }
+
+
   // auto used when the page is freshed. Put some initial logic
   ngOnInit(): void {
     this.todosService.getTodos().subscribe((res: Todo[]) => {
