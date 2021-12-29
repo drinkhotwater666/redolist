@@ -2,7 +2,7 @@
   "todos": [
     {
       "name": "eat",
-      "done": true,
+      "done": false,
       "id": 15
     },
     {
@@ -12,18 +12,8 @@
     },
     {
       "name": "fly",
-      "done": false,
-      "id": 18
-    },
-    {
-      "name": "123123",
       "done": true,
-      "id": 19
-    },
-    {
-      "name": "232134",
-      "done": false,
-      "id": 20
+      "id": 18
     }
   ]
 }

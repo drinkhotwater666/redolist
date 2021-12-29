@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+// import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FormsModule,
     MatIconModule,
     MatCheckboxModule,
-    DragDropModule
+    DragDropModule,
+    // MatSidenavModule
   ],
   exports: [TodoComponent]
 })
