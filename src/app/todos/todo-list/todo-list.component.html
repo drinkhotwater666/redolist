@@ -1,12 +1,10 @@
-<button (click)="aa()">test</button>
-
 <div cdkDropListGroup>
     <div class="example-container">
         <h2>To do</h2>
-        <p [ngModel]>{{todos.length}}</p>
+        <p [ngModel]>{{notDone.length}}</p>
 
-        <div cdkDropList [cdkDropListData]="notDone" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of notDone" cdkDrag>
+        <div cdkDropList [cdkDropListData]="notdone" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of notdone" cdkDrag>
                 <mat-checkbox [class.status]="item.done" [(ngModel)]="item.done" (click)="swapStatus(item.id)">{{item.name}}, {{item.done}}</mat-checkbox>
                 <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
             </div>

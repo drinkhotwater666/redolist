@@ -1,6 +1,7 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { TodosService } from '../todos.service'
 import { Todo } from '../todo'
+import { TodoListComponent } from '../todo-list/todo-list.component';
 
 @Component({
   selector: 'app-todo',
@@ -12,6 +13,9 @@ export class TodoComponent implements OnInit, OnChanges {
   constructor(private todosService: TodosService) { }
 
   todos: Todo[] = []
+  havedone: Todo[] = [];
+  notdone: Todo[] = [];
+
   remove(id: number) {
     this.todosService.remove(id).subscribe(res => {
       this.todos.splice(this.todos.findIndex(nb => nb.id === id), 1)
@@ -32,7 +36,7 @@ export class TodoComponent implements OnInit, OnChanges {
     })
   }
 
-
+  @ViewChild(TodoListComponent) TodoListComponent!: TodoListComponent
   // auto used when the page is freshed. Put some initial logic
   ngOnInit(): void {
     this.todosService.getTodos().subscribe((res: Todo[]) => {
@@ -40,7 +44,9 @@ export class TodoComponent implements OnInit, OnChanges {
     })
   }
   ngOnChanges(): void {
-
+    this.TodoListComponent.havedone = this.todos?.length > 0 ? this.todos.filter(i => i.done) : []
+    this.TodoListComponent.notdone = this.todos?.length > 0 ? this.todos.filter(i => !i.done) : []
+    console.log(this.TodoListComponent.notdone);
   }
 
 }

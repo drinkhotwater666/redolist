@@ -15,7 +15,7 @@ export class TodoListComponent implements OnInit {
   @Input()
   todos!: Todo[];
 
-  newTodo: Todo[] = Object.assign([], this.todos);
+  // newTodo: Todo[] = Object.assign([], this.todos);
 
   @Output()
   del = new EventEmitter<number>()
@@ -24,9 +24,11 @@ export class TodoListComponent implements OnInit {
   swap = new EventEmitter<number>()
 
 
-  // @Output()
-  // newTodos = new EventEmitter<Todo[]>()
+  @Output()
+  haveDone = new EventEmitter<Todo[]>()
 
+  @Output()
+  notDone = new EventEmitter<Todo[]>()
   // updateTodos() {
   //   this.newTodos.emit(this.newTodo);
   // }
@@ -46,14 +48,13 @@ export class TodoListComponent implements OnInit {
   }
 
   havedone: Todo[] = [];
-  notDone: Todo[] = [];
+  notdone: Todo[] = [];
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
     this.havedone = this.todos?.length > 0 ? this.todos.filter(i => i.done) : []
-    this.notDone = this.todos?.length > 0 ? this.todos.filter(i => !i.done) : []
+    this.notdone = this.todos?.length > 0 ? this.todos.filter(i => !i.done) : []
   }
-
 
   drop(event: CdkDragDrop<Todo[]>) {
     if (event.previousContainer === event.container) {
@@ -67,28 +68,28 @@ export class TodoListComponent implements OnInit {
       );
       event.container.data[event.currentIndex].done = !event.container.data[event.currentIndex].done
 
-      console.log(event.container.data[event.currentIndex].id);
+      // console.log(event.container.data[event.currentIndex].id);
+      // this.todos.splice(this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id), 1)
 
       // let index = this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id)
       // this.todos[index].done = !this.todos[index].done
       // Object.assign(this.todos[index].done, !this.todos[index].done);
-      // console.log(this.todos[index]);// get the index of dragged item in todos
-
+      // console.log(this.todos);// get the index of dragged item in todos
       // }
 
+      // if (event.container.data[event.currentIndex].done === true) {
+      //   this.havedone.push(event.container.data[event.currentIndex])
+      //   this.notdone.splice(this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id), 1)
+      // } else {
+      //   this.havedone.splice(this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id), 1)
+      //   this.notdone.push(event.container.data[event.currentIndex])
+      // }
     }
   }
 
-  aa() {
-    console.log(this.havedone);
-
-  }
-
-
   ngOnInit(): void {
-    // console.log('1111');
-    // this.havedone = this.todos?.length > 0 ? this.todos.filter(i => i.done) : []
-    // this.notDone = this.todos?.length > 0 ? this.todos.filter(i => !i.done) : []
+    this.haveDone.emit(this.havedone);
+    this.notDone.emit(this.notdone);
   }
 
 }
