@@ -1,6 +1,5 @@
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosModule } from './todos/todos.module'
@@ -14,7 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-
+import { DragdropModule } from './dragdrop/dragdrop.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,8 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatButtonModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    DragdropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

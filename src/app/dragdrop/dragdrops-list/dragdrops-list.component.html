@@ -1,11 +1,11 @@
-<!-- <div cdkDropListGroup>
+<div cdkDropListGroup>
     <div class="example-container">
         <h2>To do</h2>
         <p [ngModel]>{{notdone.length}}</p>
 
         <div cdkDropList [cdkDropListData]="notdone" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of notdone" cdkDrag>
-                <mat-checkbox [class.status]="item.done" [(ngModel)]="item.done" (click)="swapStatus(item.id)">{{item.name}}, {{item.done}}</mat-checkbox>
+            <div class="example-box" *ngFor="let item of notdone" cdkDrag>{{item.name}}, {{item.done}}
+                <!-- <mat-checkbox [class.status]="item.done" [(ngModel)]="item.done" (click)="swapStatus(item.id)">{{item.name}}, {{item.done}}</mat-checkbox> -->
                 <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
             </div>
         </div>
@@ -21,10 +21,10 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
-<p [ngModel]>{{todos.length}}</p>
+<!-- <p [ngModel]>{{todos.length}}</p>
 <div *ngFor="let item of todos; trackBy: trackID">
     <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="swapStatus(item.id)">{{item.name}}</mat-checkbox>
     <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
-</div>
+</div> -->
