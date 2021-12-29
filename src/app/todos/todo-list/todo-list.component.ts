@@ -24,11 +24,11 @@ export class TodoListComponent implements OnInit {
   swap = new EventEmitter<number>()
 
 
-  @Output()
-  haveDone = new EventEmitter<Todo[]>()
+  // @Output()
+  // haveDone = new EventEmitter<Todo[]>()
 
-  @Output()
-  notDone = new EventEmitter<Todo[]>()
+  // @Output()
+  // notDone = new EventEmitter<Todo[]>()
   // updateTodos() {
   //   this.newTodos.emit(this.newTodo);
   // }
@@ -88,8 +88,8 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.haveDone.emit(this.havedone);
-    this.notDone.emit(this.notdone);
+    // this.haveDone.emit(this.havedone);
+    // this.notDone.emit(this.notdone);
   }
 
 }

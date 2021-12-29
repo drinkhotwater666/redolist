@@ -8,9 +8,9 @@ describe('TodoHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TodoHeaderComponent]
+      declarations: [ TodoHeaderComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {

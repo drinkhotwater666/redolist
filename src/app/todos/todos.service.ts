@@ -14,11 +14,11 @@ export class TodosService {
   url = ' http://localhost:4000/todos'
 
   getTodos() {
-    return this.http.get<Todo[]>(`${this.url}`)
+    return this.http.get<Todo[]>(this.url)
   }
 
   addnew(todoName: string) {
-    return this.http.post<Todo>(`${this.url}`, {
+    return this.http.post<Todo>(this.url, {
       name: todoName,
       done: false
     })

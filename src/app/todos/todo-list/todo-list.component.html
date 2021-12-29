@@ -1,7 +1,7 @@
 <div cdkDropListGroup>
     <div class="example-container">
         <h2>To do</h2>
-        <p [ngModel]>{{notDone.length}}</p>
+        <p [ngModel]>{{notdone.length}}</p>
 
         <div cdkDropList [cdkDropListData]="notdone" class="example-list" (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let item of notdone" cdkDrag>
