@@ -1,17 +1,5 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Todo } from '../todo';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-todo-list',
@@ -20,26 +8,16 @@ import {
 })
 export class TodoListComponent implements OnInit {
   constructor() { }
+  panelOpenState = false;
 
   @Input()
   todos!: Todo[];
-
-  // newTodo: Todo[] = Object.assign([], this.todos);
 
   @Output()
   del = new EventEmitter<number>();
 
   @Output()
   swap = new EventEmitter<number>();
-
-  // @Output()
-  // haveDone = new EventEmitter<Todo[]>()
-
-  // @Output()
-  // notDone = new EventEmitter<Todo[]>()
-  // updateTodos() {
-  //   this.newTodos.emit(this.newTodo);
-  // }
 
   trackID(index: any, todo: Todo) {
     return todo.id;
@@ -63,26 +41,10 @@ export class TodoListComponent implements OnInit {
       this.todos?.length > 0 ? this.todos.filter((i) => i.done) : [];
     this.notdone =
       this.todos?.length > 0 ? this.todos.filter((i) => !i.done) : [];
+    // this.updateStatus(this.havedone);
+    // this.updateStatus(this.notdone);
   }
 
-  drop(event: CdkDragDrop<Todo[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      ); //switch status
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-      event.container.data[event.currentIndex].done =
-        !event.container.data[event.currentIndex].done;
-    }
-  }
 
   ngOnInit(): void {
   }

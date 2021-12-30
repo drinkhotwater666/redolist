@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class DragdropService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   todos: Todo[] = [];
 

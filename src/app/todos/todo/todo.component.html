@@ -2,10 +2,9 @@
     <div class="content">
         <app-todo-header (add)="addnew($event)"></app-todo-header>
         <div class="list">
-            <div style="width: 30%;">
+            <div class="colwidth">
                 <app-todo-list [todos]="todos" (del)="remove($event)" (swap)="updateStatus($event)"></app-todo-list>
             </div>
         </div>
     </div>
 </div>
-<!-- <router-outlet></router-outlet> -->

@@ -1,12 +1,6 @@
 <!-- <div *ngFor="let item of todos; trackBy: trackID">
-    <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="updateStatus(item.id)">{{item.name}}</mat-checkbox>
-    <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
-</div> -->
-<!-- <div class="content"> -->
-<div *ngFor="let item of todos; trackBy: trackID">
     <mat-list role="list">
         <mat-list-item role="listitem">
-
             <div class="between">
                 <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="updateStatus(item.id)">
                     {{item.name}}</mat-checkbox>
@@ -17,7 +11,62 @@
     </mat-list>
 </div>
 <p [ngModel]>You have {{todos.length}} events todo!</p>
+ -->
 
-<!-- <mat-list-item role="listitem">Item 2</mat-list-item>
-<mat-list-item role="listitem">Item 3</mat-list-item> -->
-<!-- </div> -->
+
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Not done&nbsp;
+            </mat-panel-title>
+            <mat-panel-description [ngModel]>
+                &nbsp;&nbsp;{{notdone.length}}
+            </mat-panel-description>
+            <!-- <mat-panel-description>
+                This is a summary of the content
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <div *ngFor="let item of notdone; trackBy: trackID">
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <div class="between">
+                        <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="updateStatus(item.id)">
+                            {{item.name}}</mat-checkbox>
+                        <mat-icon class="end" (click)="remove($event,item.id)">delete_outline</mat-icon>
+                    </div>
+
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </mat-expansion-panel>
+
+
+
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Have done
+            </mat-panel-title>
+            <mat-panel-description [ngModel]>
+                {{havedone.length}}
+                <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let item of havedone; trackBy: trackID">
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <div class="between">
+                        <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="updateStatus(item.id)">
+                            {{item.name}}</mat-checkbox>
+                        <mat-icon class="end" (click)="remove($event,item.id)">delete_outline</mat-icon>
+                    </div>
+
+                </mat-list-item>
+            </mat-list>
+        </div>
+
+    </mat-expansion-panel>
+</mat-accordion>
