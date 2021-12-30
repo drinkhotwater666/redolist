@@ -10,3 +10,7 @@
     align-items: center;
     padding: 20px;
 }
+
+.example-full-width {
+    width: 50%;
+}
