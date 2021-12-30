@@ -51,7 +51,7 @@
             </mat-panel-title>
             <mat-panel-description [ngModel]>
                 {{havedone.length}}
-                <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
+                <!-- {{panelOpenState ? 'open' : 'closed'}} -->
             </mat-panel-description>
         </mat-expansion-panel-header>
 
@@ -63,10 +63,8 @@
                             {{item.name}}</mat-checkbox>
                         <mat-icon class="end" (click)="remove($event,item.id)">delete_outline</mat-icon>
                     </div>
-
                 </mat-list-item>
             </mat-list>
         </div>
-
     </mat-expansion-panel>
 </mat-accordion>

@@ -32,6 +32,8 @@
     cursor: move;
     background: white;
     font-size: 14px;
+    padding-left: 2rem;
+    padding-right: 1.5rem;
 }
 
 .cdk-drag-preview {

@@ -14,7 +14,9 @@
         <h2>Done</h2>
         <p [ngModel]>You have completed {{havedone.length}} tasks.</p>
         <div cdkDropList [cdkDropListData]="havedone" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of havedone" cdkDrag>{{item.name}}, {{item.done}}
+            <div class="example-box" *ngFor="let item of havedone" cdkDrag>
+                <!-- {{item.name}}, {{item.done}} -->
+                <div [class.status]="item.done">{{item.name}}, {{item.done}}</div>
                 <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
             </div>
         </div>

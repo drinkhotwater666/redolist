@@ -2,12 +2,12 @@
   "todos": [
     {
       "name": "study",
-      "done": true,
+      "done": false,
       "id": 28
     },
     {
       "name": "happy",
-      "done": false,
+      "done": true,
       "id": 29
     },
     {
@@ -17,12 +17,12 @@
     },
     {
       "name": "swim",
-      "done": false,
+      "done": true,
       "id": 31
     },
     {
       "name": "music",
-      "done": false,
+      "done": true,
       "id": 32
     }
   ]
