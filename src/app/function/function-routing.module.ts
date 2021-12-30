@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CheckboxComponent } from './checkbox/checkbox.component'
-import { DragComponent } from './drag/drag.component'
 import { TodoComponent } from '../todos/todo/todo.component'
 import { DragdropsComponent } from '../dragdrop/dragdrops/dragdrops.component'
 const routes: Routes = [
