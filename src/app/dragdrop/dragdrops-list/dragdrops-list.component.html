@@ -1,7 +1,7 @@
 <div cdkDropListGroup>
     <div class="example-container">
         <h2>To do</h2>
-        <p [ngModel]>{{notdone.length}}</p>
+        <p [ngModel]>You have {{notdone.length}} tasks to do!</p>
 
         <div cdkDropList [cdkDropListData]="notdone" class="example-list" (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let item of notdone" cdkDrag>{{item.name}}, {{item.done}}
@@ -13,7 +13,7 @@
 
     <div class="example-container">
         <h2>Done</h2>
-        <p [ngModel]>{{havedone.length}}</p>
+        <p [ngModel]>You have completed {{havedone.length}} tasks.</p>
         <div cdkDropList [cdkDropListData]="havedone" class="example-list" (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let item of havedone" cdkDrag>
                 <mat-checkbox [class.status]="item.done" [(ngModel)]="item.done" (click)="swapStatus(item.id)">{{item.name}}, {{item.done}}</mat-checkbox>

@@ -1,7 +1,6 @@
 <mat-sidenav-container fullscreen>
     <mat-sidenav #sidenav mode="push" class="app-sidenav">
         <mat-toolbar color="primary">
-            <!--future svg to go here-->
             <span class="toolbar-filler"></span>
             <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
           <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
@@ -11,12 +10,10 @@
             <a mat-list-item class="sidenav-link" [routerLink]="['/home/drag']" (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>drag_indicator</mat-icon>
                 <span class="title" mat-line>Drag</span>
-                <!-- <span mat-line class="secondary">test</span> -->
             </a>
             <a mat-list-item class="sidenav-link" [routerLink]="['/home/checkbox']" (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>check_box</mat-icon>
                 <span class="title" mat-line>Checkbox</span>
-                <!-- <span mat-line class="secondary">test</span> -->
             </a>
         </mat-nav-list>
     </mat-sidenav>
@@ -24,12 +21,10 @@
         <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
               <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
       </button>
-        <!-- <h1 class="component-title">
+        <!-- <h3 class="component-title">
             <a class="title-link">{{title}}</a>
-        </h1> -->
+        </h3> -->
         <span class="toolbar-filler"></span>
-        <!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
-        <!-- <button id="button-logout" mat-button>Log Out</button> -->
     </mat-toolbar>
     <router-outlet></router-outlet>
 </mat-sidenav-container>
