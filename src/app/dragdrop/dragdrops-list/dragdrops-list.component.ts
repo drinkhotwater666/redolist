@@ -19,7 +19,7 @@ import {
   styleUrls: ['./dragdrops-list.component.css'],
 })
 export class DragdropsListComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   @Input()
   todos!: Todo[];
@@ -31,15 +31,6 @@ export class DragdropsListComponent implements OnInit {
 
   @Output()
   swap = new EventEmitter<number>();
-
-  // @Output()
-  // haveDone = new EventEmitter<Todo[]>()
-
-  // @Output()
-  // notDone = new EventEmitter<Todo[]>()
-  // updateTodos() {
-  //   this.newTodos.emit(this.newTodo);
-  // }
 
   trackID(index: any, todo: Todo) {
     return todo.id;
@@ -79,8 +70,6 @@ export class DragdropsListComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
-      event.container.data[event.currentIndex].done =
-        !event.container.data[event.currentIndex].done;
 
       this.updateStatus(event.container.data[event.currentIndex].id);
       console.log(this.todos);

@@ -8,7 +8,7 @@ import { Todo } from '../todo';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit, OnChanges {
-  constructor(private todosService: TodosService) {}
+  constructor(private todosService: TodosService) { }
 
   todos: Todo[] = [];
   remove(id: number) {
@@ -38,5 +38,5 @@ export class TodoComponent implements OnInit, OnChanges {
       this.todos = [...res];
     });
   }
-  ngOnChanges(): void {}
+  ngOnChanges(): void { }
 }

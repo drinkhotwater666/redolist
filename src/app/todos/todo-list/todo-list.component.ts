@@ -19,7 +19,7 @@ import {
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   @Input()
   todos!: Todo[];
@@ -81,28 +81,9 @@ export class TodoListComponent implements OnInit {
       );
       event.container.data[event.currentIndex].done =
         !event.container.data[event.currentIndex].done;
-
-      // console.log(event.container.data[event.currentIndex].id);
-      // this.todos.splice(this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id), 1)
-
-      // let index = this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id)
-      // this.todos[index].done = !this.todos[index].done
-      // Object.assign(this.todos[index].done, !this.todos[index].done);
-      // console.log(this.todos);// get the index of dragged item in todos
-      // }
-
-      // if (event.container.data[event.currentIndex].done === true) {
-      //   this.havedone.push(event.container.data[event.currentIndex])
-      //   this.notdone.splice(this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id), 1)
-      // } else {
-      //   this.havedone.splice(this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id), 1)
-      //   this.notdone.push(event.container.data[event.currentIndex])
-      // }
     }
   }
 
   ngOnInit(): void {
-    // this.haveDone.emit(this.havedone);
-    // this.notDone.emit(this.notdone);
   }
 }
