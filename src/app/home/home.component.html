@@ -1,0 +1,30 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push" class="app-sidenav">
+        <mat-toolbar color="primary">
+            <span class="toolbar-filler"></span>
+            <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
+          <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
+        </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item class="sidenav-link" [routerLink]="['/home/drag']" (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>drag_indicator</mat-icon>
+                <span class="title" mat-line>Drag</span>
+            </a>
+            <a mat-list-item class="sidenav-link" [routerLink]="['/home/checkbox']" (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>check_box</mat-icon>
+                <span class="title" mat-line>Checkbox</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar id="appToolbar" color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
+              <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
+      </button>
+        <!-- <h3 class="component-title">
+            <a class="title-link">{{title}}</a>
+        </h3> -->
+        <span class="toolbar-filler"></span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoComponent } from './todo/todo.component';
-import { TodoHeaderComponent } from './todo-header/todo-header.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
+import { DragdropsComponent } from './dragdrops/dragdrops.component';
+import { DragdropsHeaderComponent } from './dragdrops-header/dragdrops-header.component';
+import { DragdropsListComponent } from './dragdrops-list/dragdrops-list.component';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -15,22 +15,21 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
-    TodoComponent,
-    TodoHeaderComponent,
-    TodoListComponent
-  ],
+    DragdropsComponent,
+    DragdropsHeaderComponent,
+    DragdropsListComponent,],
   imports: [
     CommonModule,
-    FormsModule,
     MatIconModule,
-    MatCheckboxModule,
+    FormsModule,
     DragDropModule,
+    MatCheckboxModule,
     MatInputModule,
     MatListModule,
     MatDividerModule,
     MatButtonModule,
     MatGridListModule
   ],
-  exports: [TodoComponent]
+  exports: [DragDropModule]
 })
-export class TodosModule { }
+export class DragdropModule { }

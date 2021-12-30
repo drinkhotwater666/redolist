@@ -1,0 +1,5 @@
+<div class="todos">
+    <app-dragdrops-header (add)="addnew($event)"></app-dragdrops-header>
+    <app-dragdrops-list [todos]="todos" (del)="remove($event)" (swap)="swapStatus($event)"></app-dragdrops-list>
+</div>
+<!-- <router-outlet></router-outlet> -->
