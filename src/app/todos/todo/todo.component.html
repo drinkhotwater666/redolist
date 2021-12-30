@@ -1,5 +1,9 @@
 <div class="todos">
-    <app-todo-header (add)="addnew($event)"></app-todo-header>
-    <app-todo-list [todos]="todos" (del)="remove($event)" (swap)="swapStatus($event)"></app-todo-list>
+    <div class="content">
+        <app-todo-header (add)="addnew($event)"></app-todo-header>
+        <div class="list">
+            <app-todo-list [todos]="todos" (del)="remove($event)" (swap)="swapStatus($event)"></app-todo-list>
+        </div>
+    </div>
 </div>
 <!-- <router-outlet></router-outlet> -->

@@ -2,19 +2,21 @@
     <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="swapStatus(item.id)">{{item.name}}</mat-checkbox>
     <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
 </div> -->
-<div class="sb">
-    <div class="content">
-        <div *ngFor="let item of todos; trackBy: trackID">
-            <mat-list role="list">
-                <mat-list-item role="listitem">
-                    <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="swapStatus(item.id)">{{item.name}}</mat-checkbox>
-                    <mat-icon class="end" (click)="remove($event,item.id)">delete_outline</mat-icon>
-                </mat-list-item>
-            </mat-list>
-        </div>
-        <p [ngModel]>You have {{todos.length}} events todo!</p>
+<!-- <div class="content"> -->
+<div *ngFor="let item of todos; trackBy: trackID">
+    <mat-list role="list">
+        <mat-list-item role="listitem">
 
-        <!-- <mat-list-item role="listitem">Item 2</mat-list-item>
-<mat-list-item role="listitem">Item 3</mat-list-item> -->
-    </div>
+            <div class="between">
+                <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="swapStatus(item.id)">{{item.name}}</mat-checkbox>
+                <mat-icon class="end" (click)="remove($event,item.id)">delete_outline</mat-icon>
+            </div>
+
+        </mat-list-item>
+    </mat-list>
 </div>
+<p [ngModel]>You have {{todos.length}} events todo!</p>
+
+<!-- <mat-list-item role="listitem">Item 2</mat-list-item>
+<mat-list-item role="listitem">Item 3</mat-list-item> -->
+<!-- </div> -->
