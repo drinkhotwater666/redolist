@@ -1,16 +1,25 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { Todo } from '../todo'
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+} from '@angular/core';
+import { Todo } from '../todo';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
-
-  constructor() { }
-
+  constructor() {}
 
   @Input()
   todos!: Todo[];
@@ -18,11 +27,10 @@ export class TodoListComponent implements OnInit {
   // newTodo: Todo[] = Object.assign([], this.todos);
 
   @Output()
-  del = new EventEmitter<number>()
+  del = new EventEmitter<number>();
 
   @Output()
-  swap = new EventEmitter<number>()
-
+  swap = new EventEmitter<number>();
 
   // @Output()
   // haveDone = new EventEmitter<Todo[]>()
@@ -33,18 +41,17 @@ export class TodoListComponent implements OnInit {
   //   this.newTodos.emit(this.newTodo);
   // }
 
-
   trackID(index: any, todo: Todo) {
-    return todo.id
+    return todo.id;
   }
 
   remove(e: any, id: any) {
-    e.preventDefault()
-    this.del.emit(id)
+    e.preventDefault();
+    this.del.emit(id);
   }
 
-  swapStatus(id: any) {
-    this.swap.emit(id)
+  updateStatus(id: any) {
+    this.swap.emit(id);
   }
 
   havedone: Todo[] = [];
@@ -52,21 +59,28 @@ export class TodoListComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
-    this.havedone = this.todos?.length > 0 ? this.todos.filter(i => i.done) : []
-    this.notdone = this.todos?.length > 0 ? this.todos.filter(i => !i.done) : []
+    this.havedone =
+      this.todos?.length > 0 ? this.todos.filter((i) => i.done) : [];
+    this.notdone =
+      this.todos?.length > 0 ? this.todos.filter((i) => !i.done) : [];
   }
 
   drop(event: CdkDragDrop<Todo[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);//switch status
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      ); //switch status
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
-      event.container.data[event.currentIndex].done = !event.container.data[event.currentIndex].done
+      event.container.data[event.currentIndex].done =
+        !event.container.data[event.currentIndex].done;
 
       // console.log(event.container.data[event.currentIndex].id);
       // this.todos.splice(this.todos.findIndex(i => i.id === event.container.data[event.currentIndex].id), 1)
@@ -91,5 +105,4 @@ export class TodoListComponent implements OnInit {
     // this.haveDone.emit(this.havedone);
     // this.notDone.emit(this.notdone);
   }
-
 }

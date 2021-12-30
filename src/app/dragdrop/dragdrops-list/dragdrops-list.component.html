@@ -5,7 +5,6 @@
 
         <div cdkDropList [cdkDropListData]="notdone" class="example-list" (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let item of notdone" cdkDrag>{{item.name}}, {{item.done}}
-                <!-- <mat-checkbox [class.status]="item.done" [(ngModel)]="item.done" (click)="swapStatus(item.id)">{{item.name}}, {{item.done}}</mat-checkbox> -->
                 <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
             </div>
         </div>
@@ -15,8 +14,7 @@
         <h2>Done</h2>
         <p [ngModel]>You have completed {{havedone.length}} tasks.</p>
         <div cdkDropList [cdkDropListData]="havedone" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of havedone" cdkDrag>
-                <mat-checkbox [class.status]="item.done" [(ngModel)]="item.done" (click)="swapStatus(item.id)">{{item.name}}, {{item.done}}</mat-checkbox>
+            <div class="example-box" *ngFor="let item of havedone" cdkDrag>{{item.name}}, {{item.done}}
                 <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
             </div>
         </div>
@@ -25,6 +23,6 @@
 
 <!-- <p [ngModel]>{{todos.length}}</p>
 <div *ngFor="let item of todos; trackBy: trackID">
-    <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="swapStatus(item.id)">{{item.name}}</mat-checkbox>
+    <mat-checkbox [class.status]="item.done" [ngModel]="item.done" (click)="updateStatus(item.id)">{{item.name}}</mat-checkbox>
     <mat-icon (click)="remove($event,item.id)">delete_outline</mat-icon>
 </div> -->

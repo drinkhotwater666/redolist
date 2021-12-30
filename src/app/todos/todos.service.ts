@@ -1,36 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Todo } from './todo'
-import { HttpClient } from '@angular/common/http'
+import { Todo } from './todo';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodosService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  todos: Todo[] = [];
 
-  todos: Todo[] = []
-
-  url = ' http://localhost:4000/todos'
+  url = ' http://localhost:4000/todos';
 
   getTodos() {
-    return this.http.get<Todo[]>(this.url)
+    return this.http.get<Todo[]>(this.url);
   }
 
   addnew(todoName: string) {
     return this.http.post<Todo>(this.url, {
       name: todoName,
-      done: false
-    })
+      done: false,
+    });
   }
-  swapStatus(id: number, done: boolean) {
+  updateStatus(id: number, done: boolean) {
     return this.http.patch<Todo>(`${this.url}/${id}`, {
-      done
-    })
+      done,
+    });
   }
 
   remove(id: number) {
-    return this.http.delete<object>(`${this.url}/${id}`)
+    return this.http.delete<object>(`${this.url}/${id}`);
   }
-
 }
