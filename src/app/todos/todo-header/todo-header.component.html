@@ -1,2 +1,12 @@
-<input [(ngModel)]="todoname" type="text">
-<button (click)="addnew()">Insert</button>
+<!-- <input [(ngModel)]="todoname" type="text">
+<button (click)="addnew()">Insert</button> -->
+<div class="head">
+    <mat-form-field class="example-full-width">
+        <mat-label>
+            <!-- <mat-icon class="word">add</mat-icon> -->
+            &nbsp;&nbsp; Add Task
+        </mat-label>
+        <input matInput [(ngModel)]="todoname">
+    </mat-form-field>
+    <button mat-button (click)="addnew()" color="primary">Insert</button>
+</div>
