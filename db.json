@@ -2,7 +2,7 @@
   "todos": [
     {
       "name": "study",
-      "done": false,
+      "done": true,
       "id": 28
     },
     {
@@ -16,7 +16,7 @@
       "id": 39
     },
     {
-      "name": "444",
+      "name": "angular",
       "done": true,
       "id": 40
     }

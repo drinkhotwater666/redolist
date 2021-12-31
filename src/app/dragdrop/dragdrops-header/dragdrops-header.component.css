@@ -7,5 +7,10 @@
 }
 
 .example-full-width {
-    width: 70%;
+    width: 50%;
+}
+
+.insert {
+    width: 0%;
+    text-align: left;
 }

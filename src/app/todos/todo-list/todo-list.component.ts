@@ -1,12 +1,6 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Todo } from '../todo';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-todo-list',
@@ -14,9 +8,11 @@ import { Todo } from '../todo';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
-  constructor() {}
-  panelOpenState = false;
 
+  constructor() { }
+
+  panelOpenState = false;
+  isFirst = true
   @Input()
   todos!: Todo[];
 
@@ -49,5 +45,5 @@ export class TodoListComponent implements OnInit {
       this.todos?.length > 0 ? this.todos.filter((i) => !i.done) : [];
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
