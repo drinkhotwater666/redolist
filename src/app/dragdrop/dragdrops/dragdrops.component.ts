@@ -8,22 +8,22 @@ import { Todo } from '../todo';
   styleUrls: ['./dragdrops.component.css'],
 })
 export class DragdropsComponent implements OnInit {
-  constructor(private todosService: DragdropService) { }
+  constructor(private todosService: DragdropService) {}
 
   todos: Todo[] = [];
+
   remove(id: number) {
     this.todosService.remove(id).subscribe((res) => {
       this.todos.splice(
         this.todos.findIndex((nb) => nb.id === id),
         1
       );
+      this.todos = [...this.todos];
     });
   }
 
   updateStatus(id: number) {
     let curTodo = this.todos.find((nb) => nb.id === id);
-    console.log(curTodo);
-
     this.todosService.updateStatus(id, !curTodo!.done).subscribe((res) => {
       curTodo!.done = res!.done;
     });
@@ -31,7 +31,7 @@ export class DragdropsComponent implements OnInit {
 
   addnew(todoName: string) {
     this.todosService.addnew(todoName).subscribe((res) => {
-      this.todos.push(res);
+      this.todos = [...this.todos, res];
     });
   }
   // auto used when the page is freshed. Put some initial logic
@@ -40,5 +40,4 @@ export class DragdropsComponent implements OnInit {
       this.todos = [...res];
     });
   }
-  ngOnChanges(): void { }
 }

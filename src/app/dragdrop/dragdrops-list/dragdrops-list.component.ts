@@ -19,7 +19,7 @@ import {
   styleUrls: ['./dragdrops-list.component.css'],
 })
 export class DragdropsListComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
   @Input()
   todos!: Todo[];
@@ -48,14 +48,6 @@ export class DragdropsListComponent implements OnInit {
   havedone: Todo[] = [];
   notdone: Todo[] = [];
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
-    this.havedone =
-      this.todos?.length > 0 ? this.todos.filter((i) => i.done) : [];
-    this.notdone =
-      this.todos?.length > 0 ? this.todos.filter((i) => !i.done) : [];
-  }
-
   drop(event: CdkDragDrop<Todo[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -72,14 +64,18 @@ export class DragdropsListComponent implements OnInit {
       );
 
       this.updateStatus(event.container.data[event.currentIndex].id);
-      console.log(this.todos);
-      console.log(this.havedone);
-      console.log(this.notdone);
     }
   }
 
   ngOnInit(): void {
     // this.haveDone.emit(this.havedone);
     // this.notDone.emit(this.notdone);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.havedone =
+      this.todos?.length > 0 ? this.todos.filter((i) => i.done) : [];
+    this.notdone =
+      this.todos?.length > 0 ? this.todos.filter((i) => !i.done) : [];
   }
 }

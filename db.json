@@ -7,7 +7,7 @@
     },
     {
       "name": "happy",
-      "done": true,
+      "done": false,
       "id": 29
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "name": "swim",
-      "done": true,
+      "done": false,
       "id": 31
     },
     {

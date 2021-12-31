@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+} from '@angular/core';
 import { Todo } from '../todo';
 
 @Component({
@@ -7,7 +14,7 @@ import { Todo } from '../todo';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
-  constructor() { }
+  constructor() {}
   panelOpenState = false;
 
   @Input()
@@ -36,16 +43,11 @@ export class TodoListComponent implements OnInit {
   notdone: Todo[] = [];
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
     this.havedone =
       this.todos?.length > 0 ? this.todos.filter((i) => i.done) : [];
     this.notdone =
       this.todos?.length > 0 ? this.todos.filter((i) => !i.done) : [];
-    // this.updateStatus(this.havedone);
-    // this.updateStatus(this.notdone);
   }
 
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }
