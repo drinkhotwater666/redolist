@@ -1,9 +1,15 @@
 <div class="todos">
     <div class="content">
-        <app-dragdrops-header (add)="addnew($event)"></app-dragdrops-header>
-        <div class="list">
-            <app-dragdrops-list [todos]="todos" (del)="remove($event)" (swap)="updateStatus($event)">
-            </app-dragdrops-list>
-        </div>
+        <mat-tab-group mat-align-tabs="center" class="remove-border-bottom size">
+            <mat-tab label="List">
+                <div class="list">
+                    <app-dragdrops-list [todos]="todos" (del)="remove($event)" (swap)="updateStatus($event)">
+                    </app-dragdrops-list>
+                </div>
+            </mat-tab>
+            <mat-tab label="Add">
+                <app-dragdrops-header (add)="addnew($event)"></app-dragdrops-header>
+            </mat-tab>
+        </mat-tab-group>
     </div>
 </div>

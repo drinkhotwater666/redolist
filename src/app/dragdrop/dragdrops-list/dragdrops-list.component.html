@@ -1,7 +1,7 @@
 <div cdkDropListGroup>
     <div class="example-container">
-        <h2>To do</h2>
-        <p [ngModel]>You have {{notdone.length}} tasks to do!</p>
+        <h3 class="center">To do: {{notdone.length}} </h3>
+        <!-- <p class="center" [ngModel]>You have {{notdone.length}} tasks to do!</p> -->
 
         <div cdkDropList [cdkDropListData]="notdone" class="example-list" (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let item of notdone" cdkDrag>{{item.name}}, {{item.done}}
@@ -11,8 +11,8 @@
     </div>
 
     <div class="example-container">
-        <h2>Done</h2>
-        <p [ngModel]>You have completed {{havedone.length}} tasks.</p>
+        <h3 class="center">Done: {{havedone.length}}</h3>
+        <!-- <p class="center" [ngModel]>You have completed {{havedone.length}} tasks.</p> -->
         <div cdkDropList [cdkDropListData]="havedone" class="example-list" (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let item of havedone" cdkDrag>
                 <!-- {{item.name}}, {{item.done}} -->

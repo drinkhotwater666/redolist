@@ -8,3 +8,13 @@
     display: flex;
     justify-content: center;
 }
+
+.remove-border-bottom ::ng-deep .mat-tab-header {
+    border-bottom: none;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.size ::ng-deep .mat-tab-label-content {
+    font-size: 16px;
+}

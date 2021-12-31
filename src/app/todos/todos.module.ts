@@ -13,7 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     TodoComponent,
@@ -31,7 +31,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatDividerModule,
     MatButtonModule,
     MatGridListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule
   ],
   exports: [TodoComponent]
 })
