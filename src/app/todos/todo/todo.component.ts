@@ -8,16 +8,14 @@ import { Todo } from '../todo';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit, OnChanges {
-  constructor(private todosService: TodosService) {}
+  constructor(private todosService: TodosService) { }
 
   todos: Todo[] = [];
 
   remove(id: number) {
-    this.todosService.remove(id).subscribe((res) => {
-      this.todos.splice(
-        this.todos.findIndex((nb) => nb.id === id),
-        1
-      );
+    this.todosService.remove(id).subscribe(res => {
+      this.todos.splice(this.todos.findIndex((nb) => nb.id === id), 1);
+      this.todos = [...this.todos];
     });
   }
 
@@ -25,12 +23,14 @@ export class TodoComponent implements OnInit, OnChanges {
     let curTodo = this.todos.find((nb) => nb.id === id);
     this.todosService.updateStatus(id, !curTodo!.done).subscribe((res) => {
       curTodo!.done = res!.done;
+      this.todos = [...this.todos];
     });
   }
 
   addnew(todoName: string) {
     this.todosService.addnew(todoName).subscribe((res) => {
-      this.todos.push(res);
+      // this.todos.push(res);
+      this.todos = [...this.todos, res];
     });
   }
   // auto used when the page is freshed. Put some initial logic
@@ -39,5 +39,5 @@ export class TodoComponent implements OnInit, OnChanges {
       this.todos = [...res];
     });
   }
-  ngOnChanges(): void {}
+  ngOnChanges(): void { }
 }

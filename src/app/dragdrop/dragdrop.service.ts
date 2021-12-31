@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class DragdropService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   todos: Todo[] = [];
 
@@ -23,9 +23,10 @@ export class DragdropService {
     });
   }
   updateStatus(id: number, done: boolean) {
-    return this.http.patch<Todo>(`${this.url}/${id}`, {
-      done,
-    });
+    return this.http.patch<Todo>(`${this.url}/${id}`,
+      {
+        done,
+      });
   }
 
   remove(id: number) {

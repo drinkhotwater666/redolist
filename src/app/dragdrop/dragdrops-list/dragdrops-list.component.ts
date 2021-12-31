@@ -1,30 +1,18 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Todo } from '../todo';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-dragdrops-list',
   templateUrl: './dragdrops-list.component.html',
   styleUrls: ['./dragdrops-list.component.css'],
 })
+
 export class DragdropsListComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   @Input()
   todos!: Todo[];
-
-  // newTodo: Todo[] = Object.assign([], this.todos);
 
   @Output()
   del = new EventEmitter<number>();
@@ -54,7 +42,7 @@ export class DragdropsListComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex
-      ); //switch status
+      );
     } else {
       transferArrayItem(
         event.previousContainer.data,
@@ -67,15 +55,10 @@ export class DragdropsListComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    // this.haveDone.emit(this.havedone);
-    // this.notDone.emit(this.notdone);
-  }
+  ngOnInit(): void { }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.havedone =
-      this.todos?.length > 0 ? this.todos.filter((i) => i.done) : [];
-    this.notdone =
-      this.todos?.length > 0 ? this.todos.filter((i) => !i.done) : [];
+    this.havedone = this.todos?.length > 0 ? this.todos.filter((i) => i.done) : [];
+    this.notdone = this.todos?.length > 0 ? this.todos.filter((i) => !i.done) : [];
   }
 }
